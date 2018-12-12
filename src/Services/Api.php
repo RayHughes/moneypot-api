@@ -30,7 +30,7 @@ class Api
 
     /**
      * @param string $appSecret
-     * @param int $appId
+     * @param int|null $appId
      * @param int|null $authId
      */
     public function __construct(string $appSecret, ?int $authId = null, ?int $appId = null)
