@@ -9,12 +9,15 @@
         }
     ],
     "require": {
-        "PHP": "^7.0",
+        "PHP": "^7.1",
         "guzzlehttp/guzzle": "^6.3"
     },
     "autoload": {
         "psr-4": {
             "MoneyPot\\": "src/"
         }
+    },
+    "require-dev": {
+        "vimeo/psalm": "^3.0"
     }
 }
