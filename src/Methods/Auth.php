@@ -6,7 +6,7 @@ use MoneyPot\Services\Api;
 
 class Auth extends AbstractMethod implements MethodInterface
 {
-    CONST INFO_ROUTE = 'auth';
+    CONST INFO_ROUTE = 'auth/';
 
     /**
      * @param Api $apiService
@@ -16,8 +16,11 @@ class Auth extends AbstractMethod implements MethodInterface
         parent::__construct($apiService);
     }
 
-    public function info()
+    /**
+     * @return mixed
+     */
+    public function getInfo()
     {
-        return $this->apiService->sendPayload(self::INFO_ROUTE);
+        return $this->apiService->get(self::INFO_ROUTE);
     }
 }
