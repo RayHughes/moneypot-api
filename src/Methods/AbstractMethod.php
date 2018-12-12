@@ -6,6 +6,7 @@ use MoneyPot\Services\Api;
 
 abstract class AbstractMethod
 {
+    /** @var Api $apiService */
     protected $apiService;
 
     /**
