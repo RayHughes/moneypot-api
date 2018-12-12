@@ -26,24 +26,20 @@ class MoneyPot
 
     /**
      * @param int $authId
-     * @return MoneyPot
+     * @return void
      */
-    public function withAuthId(int $authId): MoneyPot
+    public function withAuthId(int $authId): void
     {
         $this->apiService->setAuthId($authId);
-
-        return $this;
     }
 
     /**
      * @param int $appId
-     * @return MoneyPot
+     * @return void
      */
-    public function withAppId(int $appId): MoneyPot
+    public function withAppId(int $appId): void
     {
         $this->apiService->setAuthId($appId);
-
-        return $this;
     }
 
     /**
