@@ -70,7 +70,7 @@ class Api
      */
     public function post(string $route, array $payload = [])
     {
-        return $this->sendPayload( $route, self::POST_METHOD, $payload);
+        return $this->sendPayload($route, self::POST_METHOD, $payload);
     }
 
     /**
@@ -80,7 +80,7 @@ class Api
      */
     public function get(string $route, array $payload = [])
     {
-        return $this->sendPayload( $route, self::GET_METHOD, $payload);
+        return $this->sendPayload($route, self::GET_METHOD, $payload);
     }
 
     /**
