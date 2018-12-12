@@ -64,7 +64,8 @@ $isValid = $bets->checkBetHash($betHash);
 ##### Bet Simple Dice
 
 ```php
-$betResult = $bets->withBetHash($betHash)
+$betResult = $moneyPot->bets()
+    ->withBetHash($betHash)
     ->withClientSeed($clientSeed)
     ->withCoin($coin)
     ->withWager($wager)
@@ -75,7 +76,8 @@ $betResult = $bets->withBetHash($betHash)
 ##### Bet 101 Dice
 
 ```php
-$betResult = $bets->withBetHash($betHash)
+$betResult = $moneyPot->bets()
+    ->withBetHash($betHash)
     ->withClientSeed($clientSeed)
     ->withCoin($coin)
     ->withWager($wager)
@@ -91,7 +93,8 @@ $payouts = [
     ['to' => 2000, 'from' => 1001, 'value' => 2],
 ];
 
-$betResult = $bets->withBetHash($betHash)
+$betResult = $moneyPot->bets()
+    ->withBetHash($betHash)
     ->withClientSeed($clientSeed)
     ->withCoin($coin)
     ->withWager($wager)
