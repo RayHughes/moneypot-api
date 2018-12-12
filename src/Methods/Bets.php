@@ -95,18 +95,18 @@ class Bets extends AbstractMethod implements MethodInterface
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getBetHash()
+    public function getBetHash(): array
     {
         return $this->apiService->post(self::HASH_ROUTE);
     }
 
     /**
      * @param string $betHash
-     * @return mixed
+     * @return array
      */
-    public function checkBetHash(string $betHash)
+    public function checkBetHash(string $betHash): array
     {
         $payload = ['bet_hash' => $betHash];
 
@@ -117,9 +117,9 @@ class Bets extends AbstractMethod implements MethodInterface
      * @param string $condition
      * @param int $target
      * @param int $payout
-     * @return mixed
+     * @return array
      */
-    public function betDiceSimple(string $condition, int $target, int $payout)
+    public function betDiceSimple(string $condition, int $target, int $payout): array
     {
         $payload = $this->generatePayload();
 
@@ -134,9 +134,9 @@ class Bets extends AbstractMethod implements MethodInterface
      * @param string $condition
      * @param int $target
      * @param int $payout
-     * @return mixed
+     * @return array
      */
-    public function betDice101(string $condition, int $target, int $payout)
+    public function betDice101(string $condition, int $target, int $payout): array
     {
         $payload = $this->generatePayload();
 
@@ -149,10 +149,10 @@ class Bets extends AbstractMethod implements MethodInterface
 
     /**
      * @param array $payouts
-     * @return mixed
+     * @return array
      * @throws BetsInvalidPayoutsException
      */
-    public function betCustom(array $payouts)
+    public function betCustom(array $payouts): array
     {
         $payload = $this->generatePayload();
 
@@ -174,7 +174,7 @@ class Bets extends AbstractMethod implements MethodInterface
      * @return array
      * @throws BetsInvalidPropertiesException
      */
-    private function generatePayload()
+    private function generatePayload(): array
     {
         if (!$this->betHash || !$this->clientSeed || !$this->wager) {
             throw new BetsInvalidPropertiesException();

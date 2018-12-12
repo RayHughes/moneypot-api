@@ -66,9 +66,9 @@ class Api
     /**
      * @param string $route
      * @param array $payload
-     * @return mixed
+     * @return array
      */
-    public function post(string $route, array $payload = [])
+    public function post(string $route, array $payload = []): array
     {
         return $this->sendPayload($route, self::POST_METHOD, $payload);
     }
@@ -76,9 +76,9 @@ class Api
     /**
      * @param string $route
      * @param array $payload
-     * @return mixed
+     * @return array
      */
-    public function get(string $route, array $payload = [])
+    public function get(string $route, array $payload = []): array
     {
         return $this->sendPayload($route, self::GET_METHOD, $payload);
     }
@@ -87,9 +87,9 @@ class Api
      * @param string $route
      * @param string $method
      * @param array $payload
-     * @return mixed
+     * @return array
      */
-    private function sendPayload(string $route, string $method, array $payload)
+    private function sendPayload(string $route, string $method, array $payload): array
     {
         $queryData = ['app_secret' => $this->appSecret];
 
@@ -112,12 +112,16 @@ class Api
             $response = $e->getResponse();
 
             if (is_null($response)) {
-                return $e->getMessage();
+                $response = ['error' => $e->getMessage()];
+
+                return $response;
             };
 
             return json_decode($response->getBody()->getContents(), true);
         } catch (RequestException $e) {
-            return $e->getMessage();
+            $response = ['error' => $e->getMessage()];
+
+            return $response;
         }
     }
 }

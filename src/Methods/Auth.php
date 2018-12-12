@@ -17,9 +17,9 @@ class Auth extends AbstractMethod implements MethodInterface
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getInfo()
+    public function getInfo(): array
     {
         return $this->apiService->get(self::INFO_ROUTE);
     }
