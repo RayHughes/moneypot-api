@@ -49,7 +49,7 @@ class Api
      * @param int $authId
      * @return void
      */
-    public function setAuthId(int $authId)
+    public function setAuthId(int $authId): void
     {
         $this->authId = $authId;
     }
@@ -58,7 +58,7 @@ class Api
      * @param int $appId
      * @return void
      */
-    public function setAppId(int $appId)
+    public function setAppId(int $appId): void
     {
         $this->appId = $appId;
     }
