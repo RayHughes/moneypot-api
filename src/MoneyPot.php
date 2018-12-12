@@ -26,26 +26,30 @@ class MoneyPot
 
     /**
      * @param int $authId
-     * @return void
+     * @return MoneyPot
      */
-    public function setAuthId(int $authId)
+    public function withAuthId(int $authId): MoneyPot
     {
         $this->apiService->setAuthId($authId);
+
+        return $this;
     }
 
     /**
      * @param int $appId
-     * @return void
+     * @return MoneyPot
      */
-    public function setAppId(int $appId)
+    public function withAppId(int $appId): MoneyPot
     {
         $this->apiService->setAuthId($appId);
+
+        return $this;
     }
 
     /**
      * @return Auth
      */
-    public function auth()
+    public function auth(): Auth
     {
         return new Auth($this->apiService);
     }
@@ -53,7 +57,7 @@ class MoneyPot
     /**
      * @return Bets
      */
-    public function bets()
+    public function bets(): Bets
     {
         return new Bets($this->apiService);
     }
@@ -61,7 +65,7 @@ class MoneyPot
     /**
      * @return Buckets
      */
-    public function buckets()
+    public function buckets(): Buckets
     {
         return new Buckets($this->apiService);
     }
@@ -69,7 +73,7 @@ class MoneyPot
     /**
      * @return Pub
      */
-    public function pub()
+    public function pub(): Pub
     {
         return new Pub($this->apiService);
     }
@@ -77,7 +81,7 @@ class MoneyPot
     /**
      * @return Wallet
      */
-    public function wallet()
+    public function wallet(): Wallet
     {
         return new Wallet($this->apiService);
     }
