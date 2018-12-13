@@ -109,41 +109,64 @@ $buckets = new $moneyPot->buckets();
 ##### Create Bucket
 
 ```php
-$buckets->create($bucketName, $bucketType, $coin);
+$bucket = $buckets->create($bucketName, $bucketType, $coin);
 ```
 
 ##### Destroy Bucket
 
 ```php
-$buckets->destroy($bucketUuid);
+$isDestroyed = $buckets->destroy($bucketUuid);
 ```
 
 ##### Credit Bucket
 
 ```php
-$buckets->credit($bucketUuid, $amount);
+$bucketTransaction = $buckets->credit($bucketUuid, $amount);
 ```
 
 ##### Debit Bucket
 
 ```php
-$buckets->debit($bucketUuid, $amount);
+$bucketTransaction = $buckets->debit($bucketUuid, $amount);
 ```
 
 ##### List Buckets
 
 ```php
-$buckets->getList();
+$allBuckets = $buckets->getList();
 ```
 
 ##### Get Individual Bucket
 
 ```php
-$buckets->getBucket($bucketUuid);
+$bucket = $buckets->getBucket($bucketUuid);
 ```
 
 ##### Get Bucket Transaction
 
 ```php
-$buckets->getTransaction($bucketTxUuid);
+$bucketTransactions = $buckets->getTransaction($bucketTxUuid);
+```
+
+## Wallet Methods
+
+```php
+$wallet = $moneyPot->wallet();
+```
+##### Send Tip
+
+```php
+$tip = $wallet->sendTip($toUserName, $coin, $amount);
+```
+
+##### Get New Wallet Address
+
+```php
+$newAddress = $wallet->getNewAddress($coin);
+```
+
+##### Get Wallet Transactions
+
+```php
+$walletTransactions = $wallet->getTransactions();
 ```
