@@ -77,17 +77,24 @@ class Api
      */
     private function sendPayload(string $route, string $method, array $payload): array
     {
+        $requestData = [];
+
         $queryData = ['app_secret' => $this->appSecret];
 
         if ($this->authId) {
             $queryData['auth_id'] = $this->authId;
         }
 
+        if ($method === self::POST_METHOD) {
+            $requestData['json'] = $payload;
+        } else {
+            $queryData = array_merge($queryData, $payload);
+        }
+
+        $requestData['query'] = $queryData;
+
         try {
-            $response = $this->client->request($method, $route, [
-                'query' => $queryData,
-                'json' => $payload,
-            ]);
+            $response = $this->client->request($method, $route, $requestData);
 
             return json_decode($response->getBody()->getContents(), true);
         } catch(BadResponseException $e) {
