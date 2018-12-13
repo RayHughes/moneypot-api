@@ -19,9 +19,6 @@ class Api
     /** @var string $appSecret */
     private $appSecret;
 
-    /** @var int|null $appId */
-    private $appId;
-
     /** @var int|null $authId */
     private $authId;
 
@@ -30,13 +27,11 @@ class Api
 
     /**
      * @param string $appSecret
-     * @param int|null $appId
      * @param int|null $authId
      */
-    public function __construct(string $appSecret, ?int $authId = null, ?int $appId = null)
+    public function __construct(string $appSecret, ?int $authId = null)
     {
         $this->appSecret = $appSecret;
-        $this->appId = $appId;
         $this->authId = $authId;
 
         $this->client = new Client([
@@ -52,15 +47,6 @@ class Api
     public function setAuthId(int $authId): void
     {
         $this->authId = $authId;
-    }
-
-    /**
-     * @param int $appId
-     * @return void
-     */
-    public function setAppId(int $appId): void
-    {
-        $this->appId = $appId;
     }
 
     /**
@@ -95,10 +81,6 @@ class Api
 
         if ($this->authId) {
             $queryData['auth_id'] = $this->authId;
-        }
-
-        if ($this->appId) {
-            $queryData['app_id'] = $this->appId;
         }
 
         try {

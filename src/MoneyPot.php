@@ -17,11 +17,10 @@ class MoneyPot
     /**
      * @param string $appSecret
      * @param int|null $authId
-     * @param int|null $appId
      */
-    public function __construct(string $appSecret, ?int $authId = null, ?int $appId = null)
+    public function __construct(string $appSecret, ?int $authId = null)
     {
-        $this->apiService = new Api($appSecret, $authId, $appId);
+        $this->apiService = new Api($appSecret, $authId);
     }
 
     /**
@@ -31,15 +30,6 @@ class MoneyPot
     public function withAuthId(int $authId): void
     {
         $this->apiService->setAuthId($authId);
-    }
-
-    /**
-     * @param int $appId
-     * @return void
-     */
-    public function withAppId(int $appId): void
-    {
-        $this->apiService->setAuthId($appId);
     }
 
     /**
