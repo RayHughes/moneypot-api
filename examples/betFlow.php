@@ -11,15 +11,15 @@ require '../vendor/autoload.php';
 
 use MoneyPot\MoneyPot;
 
-$appSecret = 'server-seed';
+$appSecret = 'app-secret'; //found in App Dev Portal
 $authId = 0;
 
-// Initialize MoneyPot
+//initialize MoneyPot
 $moneyPot = new MoneyPot($appSecret, $authId);
 
 $bets = $moneyPot->bets();
 
-// Get a new bet hash
+//get a new bet hash
 $betHashRes = $bets->getBetHash();
 $betHash = $betHashRes['bet_hash'];
 
