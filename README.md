@@ -101,3 +101,49 @@ $betResult = $moneyPot->bets()
     ->withMaxSub($maxSub)
     ->betCustom($payouts);
 ```
+
+## Bucket Methods
+```php
+$buckets = new $moneyPot->buckets();
+```
+##### Create Bucket
+
+```php
+$buckets->create($bucketName, $bucketType, $coin);
+```
+
+##### Destroy Bucket
+
+```php
+$buckets->destroy($bucketUuid);
+```
+
+##### Credit Bucket
+
+```php
+$buckets->credit($bucketUuid, $amount);
+```
+
+##### Debit Bucket
+
+```php
+$buckets->debit($bucketUuid, $amount);
+```
+
+##### List Buckets
+
+```php
+$buckets->getList();
+```
+
+##### Get Individual Bucket
+
+```php
+$buckets->getBucket($bucketUuid);
+```
+
+##### Get Bucket Transaction
+
+```php
+$buckets->getTransaction($bucketTxUuid);
+```
