@@ -87,14 +87,6 @@ class Buckets extends AbstractMethod implements MethodInterface
     }
 
     /**
-     * @return array
-     */
-    public function getList(): array
-    {
-        return $this->apiService->get(self::LIST_ROUTE);
-    }
-
-    /**
      * @param string $bucketUuid
      * @return array
      */
@@ -103,6 +95,14 @@ class Buckets extends AbstractMethod implements MethodInterface
         $payload = ['bucket_uuid' => $bucketUuid];
 
         return $this->apiService->get(self::SINGLE_ROUTE, $payload);
+    }
+
+    /**
+     * @return array
+     */
+    public function getBuckets(): array
+    {
+        return $this->apiService->get(self::LIST_ROUTE);
     }
 
     /**
